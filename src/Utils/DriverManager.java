@@ -1,6 +1,5 @@
 package Utils;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -11,25 +10,23 @@ import java.time.Duration;
 public class DriverManager {
     public static WebDriver driver;
 
-    public static WebDriver getDriver(String BrowserName) {
+    public static WebDriver getDriver(String browserName) {
         if (driver == null) {
-            switch (BrowserName.toLowerCase()) {
+            switch (browserName.toLowerCase()) {
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     break;
                 case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     break;
                 case "edge":
-                    WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
                 default:
-                    throw new RuntimeException("Browser not supported: " + BrowserName);
+                    throw new RuntimeException("Browser not supported: " + browserName);
             }
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
             driver.manage().window().maximize();
         }
         return driver;

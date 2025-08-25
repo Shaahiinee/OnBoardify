@@ -10,7 +10,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class Base {
-    WebDriver driver;
+    protected final WebDriver driver;
     WebDriverWait wait;
 
     public Base(WebDriver driver) {

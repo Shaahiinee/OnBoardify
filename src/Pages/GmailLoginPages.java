@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class GmailLoginPages extends Base {
     private final By emailBox = By.cssSelector("input[type='email']");
     private final By passwordBox = By.cssSelector("input[type='password']");
-    private final By nextButton1 = By.cssSelector("#identifierNext > div > button");
-    private final By nextButton2 = By.cssSelector("#passwordNext > div > button");
+    private final By nextButton1 = By.cssSelector("#identifierNext button");
+    private final By nextButton2 = By.cssSelector("#passwordNext button");
 
     public GmailLoginPages(WebDriver driver) {
         super(driver);

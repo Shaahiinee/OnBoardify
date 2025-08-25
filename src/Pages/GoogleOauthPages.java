@@ -2,10 +2,11 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class GoogleOauthPages extends Base {
-    private final By continueButton = By.cssSelector("#yDmH0d > c-wiz > main > div.JYXaTc.F8PBrb > div > div > div:nth-child(2) > div > div > button");
-    private final By allowButton = By.cssSelector("#submit_approve_access > div > button");
+    private final By continueButton = By.xpath("//button//span[text()='Continue']");
+    private final By allowButton = By.id("submit_approve_access");
 
     public GoogleOauthPages(WebDriver driver) {
         super(driver);
@@ -13,6 +14,7 @@ public class GoogleOauthPages extends Base {
     public DashboardPage oauth(){
         click(continueButton);
         click(allowButton);
+        wait.until(ExpectedConditions.urlToBe("https://onboardify-frontend.espace.ws/dashboard"));
         return new DashboardPage(driver);
     }
 }

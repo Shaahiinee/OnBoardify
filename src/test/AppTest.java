@@ -26,9 +26,11 @@ public class AppTest {
         SoftAssert softAssert = new SoftAssert();
         loginPage = new LoginPage(driver);
         gmailLoginPages = loginPage.login();
-        googleOauthPages = gmailLoginPages.gmailLogin("","");
+        googleOauthPages = gmailLoginPages.gmailLogin("omar.shahin.i@espace.com.eg","Omar-4870743");
         dashboardPage = googleOauthPages.oauth();
-        softAssert.assertTrue("https://onboardify-frontend.espace.ws/dashboard".equals(driver.getCurrentUrl()));
+        softAssert.assertTrue("https://onboardify-frontend.espace.ws/dashboard".equals(driver.getCurrentUrl()),
+                "Login is not Successful!");
+        softAssert.assertAll();
     }
 
     @AfterMethod
