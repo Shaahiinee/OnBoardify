@@ -3,7 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class GmailLoginPages extends Base {
+public class GmailLoginPages extends BasePage {
     private final By emailBox = By.cssSelector("input[type='email']");
     private final By passwordBox = By.cssSelector("input[type='password']");
     private final By nextButton1 = By.cssSelector("#identifierNext button");

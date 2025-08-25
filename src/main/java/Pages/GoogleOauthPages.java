@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class GoogleOauthPages extends Base {
+public class GoogleOauthPages extends BasePage {
     private final By continueButton = By.xpath("//button//span[text()='Continue']");
     private final By allowButton = By.id("submit_approve_access");
 

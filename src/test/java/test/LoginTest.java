@@ -1,26 +1,10 @@
 package test;
 
-import Pages.DashboardPage;
-import Pages.GmailLoginPages;
-import Pages.GoogleOauthPages;
 import Pages.LoginPage;
-import Utils.DriverManager;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
-public class AppTest {
-    WebDriver driver;
-    LoginPage loginPage;
-    GmailLoginPages gmailLoginPages;
-    GoogleOauthPages googleOauthPages;
-    DashboardPage dashboardPage;
-
-    @BeforeMethod
-    public void setup() {
-        driver = DriverManager.getDriver("edge");
-    }
-
+public class LoginTest extends BaseTest{
     @Test
     public void testLoginFunctionality() {
         SoftAssert softAssert = new SoftAssert();
@@ -33,8 +17,4 @@ public class AppTest {
         softAssert.assertAll();
     }
 
-    @AfterMethod
-    public void tearDown() {
-        DriverManager.quitDriver();
-    }
 }
